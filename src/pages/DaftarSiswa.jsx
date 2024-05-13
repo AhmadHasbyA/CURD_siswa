@@ -38,8 +38,7 @@ function DaftarSiswa() {
   };
   const handleSelection = (jenisKelamin) => {
     setSelectedUser(jenisKelamin);
-    setNewUser({ ...siswa, jenisKelamin }); // tambahkan jenis pengguna ke objek 'newUser'
-    setIsUser(false);
+    setSiswa({ ...siswa, jenisKelamin }); // tambahkan jenis pengguna ke objek 'newUser'
   };
   const handleChange = (e) => {
     setSiswa({ ...siswa, [e.target.name]: e.target.value });

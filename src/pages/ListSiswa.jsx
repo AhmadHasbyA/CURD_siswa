@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { IoDocumentTextOutline } from "react-icons/io5";
 import { BsTrash } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
 function ListSiswa() {
   const [data, setData] = useState([]);
-
+  const navigate = useNavigate();
   useEffect(() => {
     setData(JSON.parse(localStorage.getItem("data")) || []);
   }, []);
@@ -16,10 +17,10 @@ function ListSiswa() {
     localStorage.setItem("data", JSON.stringify(users));
     setData(users);
   };
+
   const handleRowClick = (nama) => {
-    const selectedAdmin = user.find((user) => user.nama === nama);
-    navigate("/detail-profil-admin", { state: { admin: selectedAdmin } });
-    // Mengarahkan ke halaman '/detail-profil-admin' dengan data admin yang dipilih
+    const selectedSiswa = data.find((siswa) => siswa.nama === nama);
+    navigate("/profil", { state: { siswa: selectedSiswa } }); // Ubah 'admin' menjadi 'siswa'
   };
   return (
     <>
