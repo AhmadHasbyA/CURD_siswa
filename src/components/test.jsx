@@ -17,7 +17,13 @@ function test() {
   };
   return (
     <>
-      <div>test</div>
+      <div className=" flex justify-center items-center w-full h-full">
+        <div className=" h-[40px] w-full justify-center flex items-center gap-5">
+          <span>Email Baru</span>
+          <span>:</span>
+          <input className="border border-primary outline-none py-3 px-3 h-full w-[400px] rounded-md " type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+        </div>
+      </div>
     </>
   );
 }
